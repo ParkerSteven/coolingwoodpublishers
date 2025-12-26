@@ -1,70 +1,71 @@
+
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 
 const booksData = [
   {
     id: 1,
-    title: "SONNY SONNY MEATBALL",
-    author: "By Roseanne Critelli",
-    color: "#E8D5C4",
-    coverColor: "#4A90E2"
+    title: "Emotions",
+    author: "By AL-Bayyat",
+    frontSrc: "/assets/images/book-front-back/halima/HALIMA BOOK COVER FRONT.jpg",
+    backSrc: "/assets/images/book-front-back/halima/HALIMA BOOK COVER BACK.jpg",
   },
   {
     id: 2,
-    title: "THE APPLE SAUCE",
-    author: "By Paul A. Martinez",
-    color: "#B19CD9",
-    coverColor: "#2C2C2C"
+    title: "Serious Roomate Problems",
+    author: "By Paul Arata",
+    frontSrc: "/assets/images/book-front-back/paul/Paul Arata front.jpg",
+    backSrc: "/assets/images/book-front-back/paul/Paul Arata back.jpg",
   },
   {
     id: 3,
-    title: "BENEATH THE RINGS",
-    author: "By Joe Battaglia",
-    color: "#A8E6E3",
-    coverColor: "#8B4513"
+    title: "In Formidable Fashion",
+    author: "By Lucious C. Brown",
+    frontSrc: "/assets/images/book-front-back/lucious/Lucious c. brown front.jpg",
+    backSrc: "/assets/images/book-front-back/lucious/Lucious c. brown back.jpg",
   },
   {
     id: 4,
-    title: "MIDNIGHT ECHOES",
-    author: "By Sarah Johnson",
-    color: "#FFB6C1",
-    coverColor: "#191970"
+    title: "Drag Racings Original Kentucky Colonel",
+    author: "By Mark L. Brother",
+    frontSrc: "/assets/images/book-front-back/markL/MARK L. BROTHER front.jpg",
+    backSrc: "/assets/images/book-front-back/markL/MARK L. BROTHER back.jpg",
   },
+  // Philip
   {
     id: 5,
-    title: "THE LAST CHAPTER",
-    author: "By Michael Chen",
-    color: "#98D8C8",
-    coverColor: "#8B0000"
+    title: "The Journey of Time",
+    author: "By Philip L. Williams",
+    frontSrc: "/assets/images/book-front-back/philip/front.jpg",
+    backSrc: "/assets/images/book-front-back/philip/back 25 book cover design.jpg",
   },
+  // Michael
   {
     id: 6,
-    title: "WHISPERS IN TIME",
-    author: "By Emily Rodriguez",
-    color: "#F7DC6F",
-    coverColor: "#2F4F4F"
+    title: "The Power",
+    author: "By Michael D. Evans",
+    frontSrc: "/assets/images/book-front-back/michael/front.jpg",
+    backSrc: "/assets/images/book-front-back/michael/back.jpg",
   },
+  // Clark
   {
     id: 7,
-    title: "SHADOWS OF DESTINY",
-    author: "By David Thompson",
-    color: "#FAD7A0",
-    coverColor: "#4B0082"
+    title: "The Dangerous Wolf in Forest Root",
+    author: "By Susan Clark",
+    frontSrc: "/assets/images/book-front-back/clark/WOLF FULL BOOK COVER DESIGN front.jpg",
+    backSrc: "/assets/images/book-front-back/clark/back.jpg",
   },
-  {
+  //Jos
+   {
     id: 8,
-    title: "ETERNAL HORIZONS",
-    author: "By Lisa Anderson",
-    color: "#D7BDE2",
-    coverColor: "#006400"
+    title: "Space World",
+    author: "By Josh Emerson",
+    frontSrc: "/assets/images/book-front-back/Josh/josh COVER DESIGN front.jpg",
+    backSrc: "/assets/images/book-front-back/Josh/josh Back.jpg",
   },
-  {
-    id: 9,
-    title: "THE FORGOTTEN PATH",
-    author: "By Robert Martinez",
-    color: "#AED6F1",
-    coverColor: "#8B4513"
-  }
+  // MOCKUP BOOKS (NO frontSrc / backSrc)
+ 
+  
 ];
 
 const RecommendedReads = () => {
@@ -73,6 +74,7 @@ const RecommendedReads = () => {
   const [isHeadingVisible, setIsHeadingVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [slideDirection, setSlideDirection] = useState('next');
+  const [imgError, setImgError] = useState({});
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   // Observe heading for color-on-scroll
@@ -173,6 +175,7 @@ const RecommendedReads = () => {
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
     >
+      
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -222,6 +225,7 @@ const RecommendedReads = () => {
             </h3>
           </div>
 
+          
           {/* Books Display Grid - White Background */}
           <div className="px-8 md:px-12 py-12 bg-gradient-to-br from-white via-[#FAFBFC] to-[#F6F7F9] relative">
             {/* Previous Button */}
@@ -257,60 +261,96 @@ const RecommendedReads = () => {
                     : 'translate-x-0 opacity-100'
                 }`}
               >
-              {getCurrentBooks().map((book, index) => (
-                <div 
-                  key={book.id} 
-                  className="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:-translate-y-2"
-                >
-                  {/* Book Display Area - 3D Mockup with Perspective */}
-                  <div className="w-full max-w-[260px] h-[340px] mx-auto mb-6 flex items-center justify-center relative group cursor-pointer">
-                    {/* Physical Book Mockup - Back */}
-                    <div 
-                      className="w-[130px] h-[190px] rounded-md shadow-2xl absolute left-0 z-10 transition-transform duration-300 group-hover:rotate-[-12deg] group-hover:scale-105"
-                      style={{ 
-                        backgroundColor: book.coverColor,
-                        transform: 'rotate(-8deg) translateX(15px)'
-                      }}
-                    >
-                      <div className="w-full h-full flex items-center justify-center border-2 border-black/10 rounded-md p-2">
-                        <div className="text-white font-bold text-[10px] text-center leading-tight" style={{ transform: 'rotate(8deg)' }}>
-                          {book.title.split(' ').slice(0, 2).join(' ')}
-                        </div>
-                      </div>
-                    </div>
+              {getCurrentBooks().map((book) => {
+                const hasRealCovers = Boolean(book.frontSrc && book.backSrc);
 
-                    {/* Digital Device Mockup (Tablet/Phone) - Front */}
-                    <div 
-                      className="w-[145px] h-[200px] bg-gray-900 rounded-[18px] shadow-2xl border-[5px] border-gray-900 absolute right-0 z-20 transition-transform duration-300 group-hover:rotate-[10deg] group-hover:scale-105"
-                      style={{ transform: 'rotate(6deg) translateX(-15px)' }}
-                    >
-                      <div className="w-full h-full rounded-[13px] overflow-hidden">
-                        <div 
-                          className="w-full h-full flex items-center justify-center p-3"
-                          style={{ backgroundColor: book.coverColor }}
-                        >
-                          <div className="text-white font-bold text-[11px] text-center leading-tight" style={{ transform: 'rotate(-6deg)' }}>
-                            {book.title.split(' ').slice(0, 2).join(' ')}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Book Info Card - Badge Style */}
-                  <div 
-                    style={{background: 'var(--surface)', borderColor: 'var(--border)', boxShadow: 'var(--shadow-sm)'}}
-                    className="w-full max-w-[280px] py-6 px-6 rounded-[18px] border text-center transition-all duration-300 hover:shadow-[var(--shadow)]"
+                return (
+                  <div
+                    key={book.id}
+                    className="flex flex-col items-center transform transition-all duration-300 hover:scale-105 hover:-translate-y-2"
                   >
-                    <h4 style={{color: 'var(--text)'}} className="text-base font-extrabold mb-1 italic uppercase leading-tight">
-                      {book.title}
-                    </h4>
-                    <p style={{color: 'var(--text-muted)'}} className="text-sm font-normal italic">
-                      {book.author}
-                    </p>
+                    {/* Book Display Area - 3D Mockup with Perspective */}
+                    <div className="w-full max-w-[260px] h-[340px] mx-auto mb-6 flex items-center justify-center relative group cursor-pointer">
+                      {hasRealCovers ? (
+                        <>
+                          {/* Back cover */}
+                          <div
+                            className="w-[130px] h-[190px] rounded-md shadow-2xl absolute left-0 z-10 transition-transform duration-300 group-hover:rotate-[-12deg] group-hover:scale-105 overflow-hidden"
+                            style={{ transform: "rotate(-8deg) translateX(15px)" }}
+                          >
+                            <img
+                              src={book.backSrc}
+                              alt={`${book.title} back cover`}
+                              className="w-full h-full object-cover"
+                              draggable={false}
+                            />
+                          </div>
+
+                          {/* Front cover */}
+                          <div
+                            className="w-[145px] h-[200px] bg-gray-900 rounded-[18px] shadow-2xl absolute right-0 z-20 transition-transform duration-300 group-hover:rotate-[10deg] group-hover:scale-105 overflow-hidden"
+                            style={{ transform: "rotate(6deg) translateX(-15px)" }}
+                          >
+                            <div className="w-full h-full rounded-[13px] overflow-hidden">
+                              <img
+                                src={book.frontSrc}
+                                alt={`${book.title} front cover`}
+                                className="w-full h-full object-cover"
+                                draggable={false}
+                              />
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {/* Physical Book Mockup - Back (COLOR) */}
+                          <div
+                            className="w-[130px] h-[190px] rounded-md shadow-2xl absolute left-0 z-10 transition-transform duration-300 group-hover:rotate-[-12deg] group-hover:scale-105"
+                            style={{
+                              background: book.coverColor || "#e0e0e0",
+                              transform: "rotate(-8deg) translateX(15px)",
+                            }}
+                          />
+
+                          {/* Digital Device Mockup - Front (COLOR) */}
+                          <div
+                            className="w-[145px] h-[200px] bg-gray-900 rounded-[18px] shadow-2xl absolute right-0 z-20 transition-transform duration-300 group-hover:rotate-[10deg] group-hover:scale-105"
+                            style={{ transform: "rotate(6deg) translateX(-15px)" }}
+                          >
+                            <div
+                              className="w-full h-full rounded-[13px]"
+                              style={{ background: book.coverColor || "#e0e0e0" }}
+                            />
+                          </div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Book Info Card - Badge Style */}
+                    <div
+                      style={{
+                        background: "var(--surface)",
+                        borderColor: "var(--border)",
+                        boxShadow: "var(--shadow-sm)",
+                      }}
+                      className="w-full max-w-[280px] py-6 px-6 rounded-[18px] border text-center transition-all duration-300 hover:shadow-[var(--shadow)]"
+                    >
+                      <h4
+                        style={{ color: "var(--text)" }}
+                        className="text-base font-extrabold mb-1 italic uppercase leading-tight"
+                      >
+                        {book.title}
+                      </h4>
+                      <p
+                        style={{ color: "var(--text-muted)" }}
+                        className="text-sm font-normal italic"
+                      >
+                        {book.author}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
             </div>
 

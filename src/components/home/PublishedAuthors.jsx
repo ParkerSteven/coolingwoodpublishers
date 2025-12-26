@@ -4,38 +4,48 @@ import React, { useState, useEffect } from 'react';
 const publishedAuthorsData = [
   {
     id: 1,
-    name: "MICHELE' WILLIAMS",
+    name: "PILLIP L. WILLIAMS",
     color: "#FF6B57",
-    description: "Explore the inspiring journey of Michele' Williams, author of Smooth Talker (He's Good At What He Does). Discover her talents as an actress, minister, and radio personality, and learn how her storytelling empowers others to embrace faith and resilience.",
-    profileHref: "/authors/michele-williams"
+    description: "Meet Philip L. Williams, author of The Journey of Time. His writing leans into reflection, memory, and the quiet moments that shape who we become—designed to leave readers thoughtful and grounded.",
+    profileHref: "/authors/philip",
+    imageSrc: "/assets/images/PublishedAuthors/Phlip/freepik__centered-photo-portrait-of-samuel-black-male-early__70897.png",
+    bookCoverSrc: "/assets/images/book-front-back/philip/front.jpg"
   },
   {
     id: 2,
-    name: "ROSEANNE CRITELLI",
+    name: "MICHAEL D. EVANS",
     color: "#4ECDC4",
-    description: "Dive into the world of Roseanne Critelli, author of 'The Adventures of Luca & Sonny' series. Discover her love for family, her passion for dogs, and the heartwarming stories that captivate readers of all ages.",
-    profileHref: "/authors/roseanne-critelli"
+    description: "Discover Michael D. Evans, author of The Power. His message is bold, practical, and motivating—focused on mindset, discipline, and action steps that push readers to level up consistently.",
+    profileHref: "/authors/michael-d-evans",
+    imageSrc: "/assets/images/PublishedAuthors/Michael D. Evans/freepik__the-style-is-candid-image-photography-with-natural__25396.png",
+    bookCoverSrc: "/assets/images/book-front-back/michael/front.jpg"
   },
   {
     id: 3,
-    name: "DR. TY H. WENGLAR",
+    name: "SUSAN CLARK",
     color: "#95D5F5",
-    description: "Explore Dr. Ty H. Wenglar's journey as a leader, scholar, and author of the Golden Principles of Leadership series. Discover his insights on ethics, purpose, and adaptability in modern leadership.",
-    profileHref: "/authors/ty-wenglar"
+    description: "Explore Susan Clark, author of The Dangerous Wolf in Forest Root. Her storytelling is atmospheric and literary, built on tension, hidden truths, and a calm intensity that stays with you.",
+    profileHref: "/authors/susan-clark",
+    imageSrc: "/assets/images/PublishedAuthors/susan-clark/freepik__the-style-is-candid-image-photography-with-natural__25395.png",
+    bookCoverSrc: "/assets/images/book-front-back/clark/WOLF FULL BOOK COVER DESIGN front.jpg"
   },
   {
     id: 4,
-    name: "JAMES MORRISON",
+    name: "JOSH EMERSON",
     color: "#FFD93D",
-    description: "Discover the captivating works of James Morrison, whose novels blend mystery, adventure, and unforgettable characters. His unique storytelling style keeps readers on the edge of their seats.",
-    profileHref: "/authors/james-morrison"
+    description: "Meet Josh Emerson, author of Space World. His work feels imaginative and forward-looking, blending wonder with clean modern energy—perfect for readers who enjoy ideas that feel larger than life.",
+    profileHref: "/authors/josh-emerson",
+    imageSrc: "/assets/images/PublishedAuthors/JoshEmerson/freepik__the-style-is-candid-image-photography-with-natural__25394.png",
+    bookCoverSrc: "/assets/images/book-front-back/Josh/josh COVER DESIGN front.jpg"
   },
   {
     id: 5,
-    name: "LISA ANDREWS",
+    name: "JOSH PETER",
     color: "#C69AFF",
-    description: "Meet Lisa Andrews, bestselling author of contemporary fiction. Her heartfelt stories explore relationships, personal growth, and the complexities of modern life with warmth and authenticity.",
-    profileHref: "/authors/lisa-andrews"
+    description: "Discover Josh Peter, author of The Last King. His writing carries a sharper edge—cinematic, intense, and built around power, consequences, and the kind of momentum that keeps pages turning.",
+    profileHref: "/authors/josh-peter",
+    imageSrc: "/assets/images/PublishedAuthors/Josh Peter/Chc 1.png",
+    bookCoverSrc: "/assets/images/PublishedAuthors/Josh Peter/Book (4).png"
   }
 ];
 
@@ -129,23 +139,24 @@ const PublishedAuthors = () => {
 
                 {/* Image Panel */}
                 <div style={{background: 'var(--surface-2)', borderBottomColor: 'var(--border)'}} className="flex-1 relative border-b">
-                  {/* Author Photo Placeholder */}
+                  {/* Author Photo */}
                   <div className="w-full h-full flex items-center justify-center">
-                    <div>
-                      <svg className="w-16 h-16 text-gray-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                      </svg>
-                      <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider block text-center">
-                        Author Photo
-                      </span>
-                    </div>
+                    <img
+                      src={author.imageSrc}
+                      alt={author.name}
+                      className="w-full h-full object-cover rounded-lg"
+                      draggable={false}
+                    />
                   </div>
 
                   {/* Book Cover Badge Overlay */}
-                  <div style={{background: 'white', borderColor: 'var(--border)'}} className="absolute top-3 right-3 w-[70px] h-[85px] border-2 rounded-lg flex items-center justify-center z-10">
-                    <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                    </svg>
+                  <div style={{background: 'white', borderColor: 'var(--border)'}} className="absolute top-3 right-3 w-[70px] h-[85px] border-2 rounded-lg flex items-center justify-center z-10 overflow-hidden">
+                    <img
+                      src={author.bookCoverSrc}
+                      alt={author.name + ' book cover'}
+                      className="w-full h-full object-cover rounded-lg"
+                      draggable={false}
+                    />
                   </div>
                 </div>
               </div>

@@ -204,16 +204,14 @@ export default function Footer() {
                 {/* Small Google Map Embed */}
                 <h3 style={{color: 'var(--text)'}} className="text-2xl md:text-3xl font-black mb-4 tracking-tight text-center">Our Location</h3>
                 <div className="rounded-2xl overflow-hidden border border-[#E5E9F0] shadow-lg mb-6" style={{width:'100%',height:'350px',minHeight:'350px',maxWidth:'100%'}}>
-                  <iframe
-                    title="Franklin Publishers Location"
-                    src="https://www.google.com/maps?q=7345+W+Sand+Lake+Rd,+Orlando,+FL+32819&output=embed"
-                    width="120%"
-                    height="120%"
-                    style={{border:0,width:'100%',height:'100%'}}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                 <iframe
+                   title="Franklin Publishers Location"
+                   src="https://www.google.com/maps?output=embed&q=7345+W+Sand+Lake+Rd,+Orlando,+FL+32819"
+                  style={{ border: 0, width: "120%", height: "120%" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+
                 </div>
                 <div className="text-sm text-gray-600 text-center">7345 W Sand Lake Rd, Orlando, FL 32819</div>
               </div>

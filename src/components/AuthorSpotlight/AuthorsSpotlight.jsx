@@ -5,21 +5,27 @@ import { PenTool } from 'lucide-react';
 const authorsData = [
   {
     id: 1,
-    name: "AL PERRY",
-    bio: "For over thirty years, Al Perry has dedicated his life to guiding others toward healing and self-realization. As a Qigong teacher, energy practitioner, and spiritual mentor, he reveals the deep harmony between body, mind, and spirit. His approach blends Eastern energetics with modern emotional intelligence, empowering individuals to awaken their inner wisdom and restore balance.",
-    profileHref: "/authors/al-perry"
+    name: "MICHAEL D. EVANS",
+    bio: "Discover Michael D. Evans, author of The Power. His message is bold, practical, and motivating focused on mindset, discipline, and action steps that push readers to level up consistently.",
+    profileHref: "/authors/michael-d-evans",
+    imageSrc: "/assets/images/PublishedAuthors/Michael D. Evans/freepik__the-style-is-candid-image-photography-with-natural__25396.png",
+    bookCoverSrc: "/assets/images/book-front-back/michael/front.jpg"
   },
   {
     id: 2,
-    name: "ERIC ADAMS",
-    bio: "Born in Pennsylvania, Eric Adams is a storyteller, craftsman, and dreamer whose imagination reaches beyond the visible world. With roots in construction and design, his path to authorship reflects persistence and proof that creativity can flourish anywhere. Guided by a lifelong fascination with theology, myth, and mystery, Eric spent over a decade shaping Torment of the Divine.",
-    profileHref: "/authors/eric-adams"
+    name: "SUSAN CLARK",
+    bio: "Explore Susan Clark, author of The Dangerous Wolf in Forest Root. Her storytelling is atmospheric and literary, built on tension, hidden truths, and a calm intensity that stays with you.",
+    profileHref: "/authors/susan-clark",
+    imageSrc: "/assets/images/PublishedAuthors/susan-clark/freepik__the-style-is-candid-image-photography-with-natural__25395.png",
+    bookCoverSrc: "/assets/images/book-front-back/clark/WOLF FULL BOOK COVER DESIGN front.jpg"
   },
   {
     id: 3,
-    name: "SARAH CHEN",
-    bio: "Sarah Chen is an acclaimed novelist known for her vivid storytelling and deep character development. With a background in psychology and creative writing, she weaves narratives that explore the human condition with empathy and insight. Her debut novel captivated readers worldwide and established her as a distinctive voice in contemporary fiction.",
-    profileHref: "/authors/sarah-chen"
+    name: "JOSH PETER",
+    bio: "Discover Josh Peter, author of The Last King. His writing carries a sharper edge cinematic, intense, and built around power, consequences, and the kind of momentum that keeps pages turning.",
+    profileHref: "/authors/josh-peter",
+    imageSrc: "/assets/images/PublishedAuthors/Josh Peter/Chc 1.png",
+    bookCoverSrc: "/assets/images/PublishedAuthors/Josh Peter/Book (4).png"
   }
 ];
 
@@ -103,16 +109,18 @@ const AuthorsSpotlight = () => {
             </div>
 
             {/* B) Author Image Placeholder */}
-            <div style={{
-              background: 'var(--surface)',
-              borderRightColor: 'var(--border)'
-            }} className="border-r flex flex-col items-center justify-center">
-              <div className={`transition-opacity duration-300 ${fadeClass}`}>
-                <svg style={{color: 'var(--text-muted)'}} className="w-16 h-16 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-                <span style={{color: 'var(--text-muted)'}} className="text-xs font-semibold uppercase tracking-wider">Author Image</span>
-              </div>
+            <div
+              style={{
+                background: 'var(--surface)',
+                borderRightColor: 'var(--border)'
+              }}
+              className="border-r h-full overflow-hidden"
+            >
+              <img
+                src={authorsData[currentIndex].imageSrc}
+                alt={`${authorsData[currentIndex].name} author photo`}
+                className={`w-full h-full object-cover transition-opacity duration-300 ${fadeClass}`}
+              />
             </div>
 
             {/* C) Book Cover Placeholder */}
@@ -121,10 +129,11 @@ const AuthorsSpotlight = () => {
               borderRightColor: 'var(--border)'
             }} className="border-r flex flex-col items-center justify-center">
               <div className={`transition-opacity duration-300 ${fadeClass}`}>
-                <svg style={{color: 'var(--text-muted)'}} className="w-16 h-16 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                </svg>
-                <span style={{color: 'var(--text-muted)'}} className="text-xs font-semibold uppercase tracking-wider">Book Cover</span>
+                <img
+                  src={authorsData[currentIndex].bookCoverSrc}
+                  alt={`${authorsData[currentIndex].name} book cover`}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -164,18 +173,20 @@ const AuthorsSpotlight = () => {
                 borderRightColor: 'var(--border)'
               }} className="border-r h-40 flex flex-col items-center justify-center">
                 <div className={`transition-opacity duration-300 ${fadeClass}`}>
-                  <svg style={{color: 'var(--text-muted)'}} className="w-12 h-12 mb-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
-                  <span style={{color: 'var(--text-muted)'}} className="text-xs font-semibold">Author</span>
+                  <img
+                    src={authorsData[currentIndex].imageSrc}
+                    alt={`${authorsData[currentIndex].name} author photo`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div style={{background: 'var(--surface)'}} className="h-40 flex flex-col items-center justify-center">
                 <div className={`transition-opacity duration-300 ${fadeClass}`}>
-                  <svg style={{color: 'var(--text-muted)'}} className="w-12 h-12 mb-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                  </svg>
-                  <span style={{color: 'var(--text-muted)'}} className="text-xs font-semibold">Book</span>
+                  <img
+                    src={authorsData[currentIndex].bookCoverSrc}
+                    alt={`${authorsData[currentIndex].name} book cover`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
